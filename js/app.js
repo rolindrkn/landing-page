@@ -66,19 +66,19 @@ navList.addEventListener('click', function(event) {
 // }
 
 function active() {
-	window.addEventListener('scroll', (event) => {
-		let fromTop = window.scrollY;
-		nav.forEach((link) => {
-			let section = document.querySelector(link.hash);
-			for (let item of sections) {
-				if (sections.getBoundingClientRect().top < 100) {
-					link.classList.add('active-class');
-				} else {
-					link.classList.remove('active-class');
-				}
+    window.addEventListener('scroll', (event) => {
+    let fromTop = window.scrollY;
+    nav.forEach(link) => {
+          let section = document.querySelector(link.hash);
+	   for (let item of sections) {
+		if (sections.getBoundingClientRect().top < 100) {
+		    link.classList.add('active-class');
+		} else {
+		     link.classList.remove('active-class');
 			}
-		});
+		}
 	});
+    });
 }
 
 // fixed nav
