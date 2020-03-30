@@ -48,7 +48,7 @@ function navigation() {
 navList.addEventListener('click', function(event) {
 	event.preventDefault();
 });
-// // Add class 'active' to section when near top of viewport
+// Add class 'active' to section when near top of viewport
 // function activeClass() {
 
 // 	for (let activeElem of sections) {
@@ -81,7 +81,7 @@ function active() {
 	});
 }
 
-// Scroll to section on link click
+// fixed nav
 let topOfNav = nav.offsetTop;
 function fixNav() {
 	if (window.scrollY >= topOfNav) {
@@ -93,7 +93,7 @@ function fixNav() {
 	}
 }
 window.addEventListener('scroll', fixNav);
-// Scroll to section on link click
+// Scroll to anchor ID using scrollTO event
 window.scrollTo({
 	top: 100,
 	left: 100,
@@ -102,6 +102,8 @@ window.scrollTo({
 
 // Build menu
 window.onload = navigation();
+
+// Scroll to section on link click
 
 // Set sections as active
 active();
