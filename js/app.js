@@ -70,14 +70,13 @@ function navigation() {
 function active() {
 	window.addEventListener('scroll', (event) => {
 		for (let section of sections) {
-			console.dir(section.getBoundingClientRect());
+// 			console.dir(section.getBoundingClientRect());
 			// if (section.id === 'section1') {
 			//
 			// }
 			const secTop = section.getBoundingClientRect().top;
 			// console.log(secTop);
 			if (secTop <= 0) {
-				// add class
 				const navBarUl = navList;
 				const firstList = navBarUl.firstElementChild;
 				firstList.classList.add('your-active-class');
