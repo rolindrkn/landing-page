@@ -81,7 +81,6 @@ function active() {
 				const navBarUl = navList;
 				const firstList = navBarUl.firstElementChild;
 				firstList.classList.add('your-active-class');
-				// remove "active-class" from other <li>
 			} else {
 				firstList.classList.remove('your-active-class');
 			}
