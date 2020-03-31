@@ -87,10 +87,7 @@ section {
 	color: #fff;
 	transition: ease 0.3s all;
 }
-.active-class {
-	color: #fff;
-	background-color: rgb(170, 162, 47);
-}
+
 /* Header Styles */
 .page__header {
 	background: #fff;

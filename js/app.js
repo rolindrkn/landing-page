@@ -37,17 +37,19 @@ const nav = document.querySelector('.navbar__menu');
 function navigation() {
 	for (let item of sections) {
 		let section = document.createElement('li');
+		let anchor = document.createElement('a');
+		anchor.href = `#${item.id}`;
 		section.className = 'list-item';
 		section.dataset.nav = item.id;
-		section.innerText = item.dataset.nav;
+		anchor.innerText = item.dataset.nav;
+		// section.innerText = item.dataset.nav;
+		section.appendChild(anchor);
 		navList.appendChild(section);
+		const x = section.getBoundingClientRect();
+		console.log(x);
 	}
 }
 
-//prevent default
-navList.addEventListener('click', function(event) {
-	event.preventDefault();
-});
 // Add class 'active' to section when near top of viewport
 // function activeClass() {
 
@@ -67,17 +69,23 @@ navList.addEventListener('click', function(event) {
 
 function active() {
 	window.addEventListener('scroll', (event) => {
-		let fromTop = window.scrollY;
-		nav.forEach((link) => {
-			let section = document.querySelector(link.hash);
-			for (let item of sections) {
-				if (sections.getBoundingClientRect().top < 100) {
-					link.classList.add('active-class');
-				} else {
-					link.classList.remove('active-class');
-				}
+		for (let section of sections) {
+			console.dir(section.getBoundingClientRect());
+			// if (section.id === 'section1') {
+			//
+			// }
+			const secTop = section.getBoundingClientRect().top;
+			// console.log(secTop);
+			if (secTop <= 0) {
+				// add class
+				const navBarUl = navList;
+				const firstList = navBarUl.firstElementChild;
+				firstList.classList.add('your-active-class');
+				// remove "active-class" from other <li>
+			} else {
+				firstList.classList.remove('your-active-class');
 			}
-		});
+		}
 	});
 }
 
@@ -101,7 +109,7 @@ window.scrollTo({
 });
 
 // Build menu
-window.onload = navigation();
+navigation();
 
 // Scroll to section on link click
 
