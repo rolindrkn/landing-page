@@ -58,10 +58,10 @@ const options = {
 const observer = new IntersectionObserver((entries, observer) => {
 	entries.forEach((entry) => {
 		if (!entry.isIntersecting) {
-			return;
+			return entry.target.classList.remove('your-active-class');
 		}
-		entry.target.classList.toggle('your-active-class');
-		observer.unobserve(entry.target);
+		entry.target.classList.add('your-active-class');
+		// observer.unobserve(entry.target);
 	});
 }, options);
 
@@ -136,6 +136,10 @@ function fixNav() {
 }
 window.addEventListener('scroll', fixNav);
 // Scroll to anchor ID using scrollTO event
+// document.querySelector('a').addEventListener('click', (e) => {
+// 	e.preventDefault();
+// 	let section = this.href;
+// });
 
 //Build menu
 navigation();
@@ -144,4 +148,3 @@ navigation();
 
 // Set sections as active
 // active();
-// observer();

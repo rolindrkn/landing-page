@@ -87,8 +87,8 @@ section {
 	color: #fff;
 	transition: ease 0.3s all;
 }
-.navbar__menu .menu__link:active{
-	background:rgb(201, 108, 108);
+.navbar__menu .menu__link:active {
+	background: rgb(201, 108, 108);
 	color: #fff;
 	transition: ease 0.3s all;
 }
@@ -220,13 +220,11 @@ section.your-active-class .landing__container::after {
 	}
 }
 
- nav {
-	position: fixed;
+/* nav {
 	top: 0;
 	z-index: 1;
 	display: flex;
 	width: 100%;
-	height: 3.5em;
 	background: rgba(202, 170, 170, 0.623);
 }
 ul {
@@ -234,5 +232,4 @@ ul {
 	justify-content: space-evenly;
 	list-style: none;
 	width: 100%;
-	padding: 0.3em;
-} 
+} */
