@@ -49,20 +49,20 @@ function navigation() {
 }
 
 // Add class 'active' to section when near top of viewport
-function activeClass() {
-	for (let activeElem of sections) {
-		let bounding = activeElem.getBoundingClientRect();
-		if (
-			bounding.top >= 0 &&
-			bounding.left >= 0 &&
-			bounding.right <= (window.innerWidth || document.documentElement.clientWidth) &&
-			bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-		) {
-			activeElem.className == 'active';
-	     } else {
-			activeElem.className = '';
-		}
-}
+// function activeClass() {
+// 	for (let activeElem of sections) {
+// 		let bounding = activeElem.getBoundingClientRect();
+// 		if (
+// 			bounding.top >= 0 &&
+// 			bounding.left >= 0 &&
+// 			bounding.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+// 			bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+// 		) {
+// 			activeElem.className == 'active';
+// 	     } else {
+// 			activeElem.className = '';
+// 		}
+// }
 
 function active() {
 	window.addEventListener('scroll', (event) => {
