@@ -66,35 +66,6 @@ function navigation() {
 // 		}
 // }
 
-// function active() {
-// 	window.addEventListener('scroll', (event) => {
-// 		for (let section of sections) {
-// 			const secTop = section.getBoundingClientRect().top;
-// 			// console.log(secTop);
-// 			const navBarUl = navList;
-// 			const firstList = navBarUl.firstElementChild;
-// 			if (isElementInViewport(section)) {
-// 				// const navBarUl = navList;
-// 				//const firstList = navBarUl.firstElementChild;
-// 				firstList.classList.add('your-active-class');
-// 			} else {
-// 				firstList.classList.remove('your-active-class');
-// 			}
-// 			function isElementInViewport(el) {
-// 				let rect = el.getBoundingClientRect();
-
-// 				return (
-// 					rect.top >= 0 &&
-// 					rect.left >= 0 &&
-// 					rect.bottom <=
-// 						(window.innerHeight || document.documentElement.clientHeight) /* or $(window).height() */ &&
-// 					rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
-// 				);
-// 			}
-// 		}
-// 	});
-// }
-
 function active() {
 	window.addEventListener('scroll', (event) => {
 		for (let section of sections) {
