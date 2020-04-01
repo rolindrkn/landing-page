@@ -20,12 +20,42 @@
 const sections = document.querySelectorAll('section');
 const navList = document.querySelector('#navbar__list');
 const nav = document.querySelector('.navbar__menu');
+<<<<<<< HEAD
 
 /**
  * End Global Variables
  * Start Helper Functions
  *
 */
+=======
+
+// /**
+//  * End Global Variables
+//  * Start Helper Functions
+//  *
+// */
+
+// /**
+//  * End Helper Functions
+//  * Begin Main Functions
+//  *
+// */
+
+// build the nav
+function navigation() {
+	for (let item of sections) {
+		let section = document.createElement('li');
+		let anchor = document.createElement('a');
+		anchor.href = `#${item.id}`;
+		section.className = 'list-item';
+		section.dataset.nav = item.id;
+		anchor.innerText = item.dataset.nav;
+		// section.innerText = item.dataset.nav;
+		section.appendChild(anchor);
+		navList.appendChild(section);
+	}
+}
+>>>>>>> fd9fcd815c4381244c3f6450bc752c3efd14fee8
 
 /**
  * End Helper Functions
@@ -115,18 +145,28 @@ function fixNav() {
 	}
 }
 window.addEventListener('scroll', fixNav);
+<<<<<<< HEAD
 // Scroll to anchor ID using scrollTO event
 
 
 //Build menu
 navigation();
+=======
+// // Scroll to anchor ID using scrollTO event
+>>>>>>> fd9fcd815c4381244c3f6450bc752c3efd14fee8
 
 // Scroll to section on link click
 
+<<<<<<< HEAD
 // Set sections as active
 active();
+=======
+// Build menu
+navigation();
+>>>>>>> fd9fcd815c4381244c3f6450bc752c3efd14fee8
 
 
+<<<<<<< HEAD
 // const navbar = document.querySelector('#navbar__list');
 // const sections = document.querySelectorAll('section');
 // const header = document.querySelector('.page__header');
@@ -184,3 +224,9 @@ active();
 // header.firstElementChild.addEventListener('click', () => {
 //     navbar.classList.toggle('hidden');
 // })
+=======
+// // Set sections as active
+active();
+
+
+>>>>>>> fd9fcd815c4381244c3f6450bc752c3efd14fee8
