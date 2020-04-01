@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-## Introduction
+## INTRODUCTION
 
 - This project builds a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page.
 
@@ -27,15 +27,5 @@ Project rubric can be found [here].
 [JavaScript Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/javascript.html)
 
 [Git Style Guide](https://udacity.github.io/git-styleguide/)
-
-
-
-
-
-
-
-
-
-
 
 [here]:https://review.udacity.com/#!/rubrics/2658/view
