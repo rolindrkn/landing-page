@@ -21,7 +21,6 @@ const sections = document.querySelectorAll('section');
 const navList = document.querySelector('#navbar__list');
 const nav = document.querySelector('.navbar__menu');
 const sectionOne = document.querySelector('#section1');
-const options = {};
 
 /**
  * End Global Variables
@@ -51,6 +50,11 @@ function navigation() {
 }
 
 //create IntersectionObserver to observe scrolling
+const options = {
+	root: null, //viewport
+	threshold: 0, //0 to 1 scale
+	rootMargin: '-150px'
+};
 const observer = new IntersectionObserver((entries, observer) => {
 	entries.forEach((entry) => {
 		if (!entry.isIntersecting) {
