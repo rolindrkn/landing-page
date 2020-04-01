@@ -58,10 +58,10 @@ const options = {
 const observer = new IntersectionObserver((entries, observer) => {
 	entries.forEach((entry) => {
 		if (!entry.isIntersecting) {
+			entry.target.classList.remove('your-active-class');
 			return;
 		}
-		entry.target.classList.toggle('your-active-class');
-		observer.unobserve(entry.target);
+		entry.target.classList.add('your-active-class');
 	});
 }, options);
 
