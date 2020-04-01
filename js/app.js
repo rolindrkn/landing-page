@@ -52,7 +52,6 @@ function navigation() {
 
 // Add class 'active' to section when near top of viewport
 // function activeClass() {
-
 // 	for (let activeElem of sections) {
 // 		let bounding = activeElem.getBoundingClientRect();
 // 		if (
@@ -67,28 +66,64 @@ function navigation() {
 // 		}
 // }
 
+// function active() {
+// 	window.addEventListener('scroll', (event) => {
+// 		for (let section of sections) {
+// 			const secTop = section.getBoundingClientRect().top;
+// 			// console.log(secTop);
+// 			const navBarUl = navList;
+// 			const firstList = navBarUl.firstElementChild;
+// 			if (isElementInViewport(section)) {
+// 				// const navBarUl = navList;
+// 				//const firstList = navBarUl.firstElementChild;
+// 				firstList.classList.add('your-active-class');
+// 			} else {
+// 				firstList.classList.remove('your-active-class');
+// 			}
+// 			function isElementInViewport(el) {
+// 				let rect = el.getBoundingClientRect();
+
+// 				return (
+// 					rect.top >= 0 &&
+// 					rect.left >= 0 &&
+// 					rect.bottom <=
+// 						(window.innerHeight || document.documentElement.clientHeight) /* or $(window).height() */ &&
+// 					rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+// 				);
+// 			}
+// 		}
+// 	});
+// }
+
 function active() {
 	window.addEventListener('scroll', (event) => {
 		for (let section of sections) {
-			console.dir(section.getBoundingClientRect());
-			// if (section.id === 'section1') {
-			//
-			// }
 			const secTop = section.getBoundingClientRect().top;
-			// console.log(secTop);
-			if (secTop <= 0) {
-				// add class
-				const navBarUl = navList;
-				const firstList = navBarUl.firstElementChild;
-				firstList.classList.add('your-active-class');
-				// remove "active-class" from other <li>
+			const navBarUl = navList;
+			const firstList = navBarUl.firstElementChild;
+			const activeItemName = section.getAttribute('id');
+			const activeElementIndex = activeItemName.charAt(activeItemName.length - 1) - 1;
+			const activeElement = navBarUl.children[activeElementIndex];
+			if (isElementInViewport(section)) {
+				activeElement.classList.add('your-active-class');
 			} else {
-				firstList.classList.remove('your-active-class');
+				activeElement.classList.remove('your-active-class');
+			}
+
+			function isElementInViewport(el) {
+				const rect = el.getBoundingClientRect();
+
+				return (
+					rect.top >= 0 &&
+					rect.left >= 0 &&
+					rect.bottom <=
+						(window.innerHeight || document.documentElement.clientHeight) /* or $(window).height() */ &&
+					rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+				);
 			}
 		}
 	});
 }
-
 // fixed nav
 let topOfNav = nav.offsetTop;
 function fixNav() {
