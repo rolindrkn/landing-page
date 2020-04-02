@@ -112,7 +112,6 @@ function makeActive() {
 	for (const section of sections) {
 		const box = section.getBoundingClientRect();
 		const active = document.querySelector('li[data-nav="' + section.id + '"]');
-		// const menuLink = document.querySelectorAll('menu__link');
 		if (box.top <= 150 && box.bottom >= 150) {
 			// Apply active state on the current section and the corresponding Nav link.
 			section.classList.add('your-active-class');
