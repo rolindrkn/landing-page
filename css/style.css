@@ -143,8 +143,8 @@ section:nth-of-type(odd) .landing__container::before {
 	width: 20vh;
 	height: 20vh;
 	border-radius: 50%;
-	opacity: 0;
-	transition: ease 0.5s all;
+	/* opacity: 0; */
+	/* transition: ease 0.5s all; */
 }
 
 section:nth-of-type(even) .landing__container::before {
