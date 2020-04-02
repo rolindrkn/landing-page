@@ -158,6 +158,8 @@ function scroll() {
 	});
 }
 
+scroll();
+
 // Set sections as active
 window.addEventListener('scroll', function() {
 	makeActive();
