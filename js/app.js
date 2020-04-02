@@ -68,8 +68,6 @@ function navigation() {
 // 	observer.observe(section);
 // });
 
-//Add class 'active' to section when near top of viewport
-
 // function active() {
 // 	window.addEventListener('scroll', (event) => {
 // 		for (let section of sections) {
@@ -107,6 +105,8 @@ function navigation() {
 // 		}
 // 	});
 // }
+
+//Add class 'active' to section when near top of viewport
 
 function makeActive() {
 	for (const section of sections) {
@@ -153,7 +153,8 @@ function scroll() {
 		e.preventDefault();
 		document.querySelector('#' + event.target.dataset.nav).scrollIntoView({
 			behavior: 'smooth',
-			offsetTop: 20
+			offsetTop: 20,
+			block: end
 		});
 	});
 }
