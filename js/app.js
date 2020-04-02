@@ -19,8 +19,8 @@
 // */
 const sections = document.querySelectorAll('section');
 const navList = document.querySelector('#navbar__list');
-const nav = document.querySelector('.navbar__menu');
-const sectionOne = document.querySelector('#section1');
+
+// const sectionOne = document.querySelector('#section1');
 
 /**
  * End Global Variables
@@ -38,52 +38,35 @@ const sectionOne = document.querySelector('#section1');
 function navigation() {
 	for (let item of sections) {
 		let section = document.createElement('li');
-		let anchor = document.createElement('a');
-		anchor.href = `#${item.id}`;
-		section.className = 'list-item';
+		// let anchor = document.createElement('a');
+		section.className = 'menu__link';
+		// anchor.href = `#${item.id}`;
 		section.dataset.nav = item.id;
-		anchor.innerText = item.dataset.nav;
-		// section.innerText = item.dataset.nav;
-		section.appendChild(anchor);
+		section.innerText = item.dataset.nav;
+		// section.appendChild(anchor);
 		navList.appendChild(section);
 	}
 }
 
 //create IntersectionObserver to observe scrolling
-const options = {
-	root: null, //viewport
-	threshold: 0, //0 to 1 scale
-	rootMargin: '-150px'
-};
-const observer = new IntersectionObserver((entries, observer) => {
-	entries.forEach((entry) => {
-		if (!entry.isIntersecting) {
-			entry.target.classList.remove('your-active-class');
-			return;
-		}
-		entry.target.classList.add('your-active-class');
-	});
-}, options);
-
-sections.forEach((section) => {
-	observer.observe(section);
-});
-
-//Add class 'active' to section when near top of viewport
-// function activeClass() {
-// 	for (let activeElem of sections) {
-// 		let bounding = activeElem.getBoundingClientRect();
-// 		if (
-// 			bounding.top >= 0 &&
-// 			bounding.left >= 0 &&
-// 			bounding.right <= (window.innerWidth || document.documentElement.clientWidth) &&
-// 			bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-// 		) {
-// 			activeElem.className == 'active';
-// 	     } else {
-// 			activeElem.className = '';
+// const options = {
+// 	root: null, //viewport
+// 	threshold: 0, //0 to 1 scale
+// 	rootMargin: '-150px'
+// };
+// const observer = new IntersectionObserver((entries, observer) => {
+// 	entries.forEach((entry) => {
+// 		if (!entry.isIntersecting) {
+// 			return entry.target.classList.remove('your-active-class');
 // 		}
-// }
+// 		entry.target.classList.add('your-active-class');
+// 		// observer.unobserve(entry.target);
+// 	});
+// }, options);
+
+// sections.forEach((section) => {
+// 	observer.observe(section);
+// });
 
 // function active() {
 // 	window.addEventListener('scroll', (event) => {
@@ -123,25 +106,62 @@ sections.forEach((section) => {
 // 	});
 // }
 
-// fixed nav
-let topOfNav = nav.offsetTop;
-function fixNav() {
-	if (window.scrollY >= topOfNav) {
-		document.body.style.paddingTop = nav.offsetHeight + 'px';
-		document.body.classList.add('fixed-nav');
-	} else {
-		document.body.classList.remove('fixed-nav');
-		document.body.style.paddingTop = 0;
+//Add class 'active' to section when near top of viewport
+
+function makeActive() {
+	for (const section of sections) {
+		const box = section.getBoundingClientRect();
+		const active = document.querySelector('li[data-nav="' + section.id + '"]');
+		if (box.top <= 200 && box.bottom >= 200) {
+			// Apply active state on the current section and the corresponding Nav link.
+			section.classList.add('your-active-class');
+			//Add "active" class to the Nav link which have a class same as id of the current section
+			active.classList.add('active__link');
+		} else {
+			// Remove active state from other section and corresponding Nav link.
+			section.classList.remove('your-active-class');
+			//Remove "active" class from the Nav link which have a class same as id of current section
+			active.classList.remove('active__link');
+		}
 	}
 }
-window.addEventListener('scroll', fixNav);
 // Scroll to anchor ID using scrollTO event
+// const isSectionVisible = () => {
+// 	sections.forEach((section) => {
+// 		const sectionId = section.id;
+// 		const sectionBottom = section.offsetTop + section.clientHeight;
+// 		const isHalfShown = window.scrollY + window.innerHeight - section.clientHeight / 2 > section.offsetTop;
+// 		const isNotScrolledPast = window.scrollY < sectionBottom;
+// 		const visibleItem = document.querySelectorAll('.menu__link');
+// 		for (let item of visibleItem) {
+// 			if (isHalfShown && isNotScrolledPast) {
+// 				document.querySelector('li[data-nav=" ' + section.id + ' "]').classList.add('is-active');
+// 			} else {
+// 				document.querySelector('li[data-nav=" ' + section.id + ' "]').classList.remove('is-active');
+// 			}
+// 		}
+// 	});
+// };
 
 //Build menu
 navigation();
 
 // Scroll to section on link click
 
+function scroll() {
+	navList.addEventListener('click', (e) => {
+		e.preventDefault();
+		document.querySelector('#' + event.target.dataset.nav).scrollIntoView({
+			behavior: 'smooth',
+			offsetTop: 20,
+			block: 'end'
+		});
+	});
+}
+
+scroll();
+
 // Set sections as active
-// active();
-// observer();
+window.addEventListener('scroll', function() {
+	makeActive();
+});
