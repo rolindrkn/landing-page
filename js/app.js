@@ -154,7 +154,7 @@ function scroll() {
 		document.querySelector('#' + event.target.dataset.nav).scrollIntoView({
 			behavior: 'smooth',
 			offsetTop: 20,
-			block: end
+			block: 'end'
 		});
 	});
 }
