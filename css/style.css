@@ -9,9 +9,6 @@
 */
 
 /* ---- Base Rules ---- */
-html {
-	scroll-behavior: smooth;
-}
 body {
 	background: rgb(136, 203, 171);
 	background: linear-gradient(0deg, rgba(136, 203, 171, 1) 0%, rgba(0, 13, 60, 1) 100%);
@@ -79,16 +76,16 @@ section {
 	padding: 1em;
 	font-weight: bold;
 	text-decoration: none;
-	color: #fff;
+	color: #000;
 }
 
 .navbar__menu .menu__link:hover {
-	background: rgb(99, 93, 38);
+	background: #333;
 	color: #fff;
 	transition: ease 0.3s all;
 }
-.navbar__menu .menu__link:active {
-	background: rgb(201, 108, 108);
+.navbar__menu .active__link {
+	background: rgb(156, 94, 94);
 	color: #fff;
 	transition: ease 0.3s all;
 }
@@ -143,8 +140,8 @@ section:nth-of-type(odd) .landing__container::before {
 	width: 20vh;
 	height: 20vh;
 	border-radius: 50%;
-	/* opacity: 0; */
-	/* transition: ease 0.5s all; */
+	opacity: 0;
+	transition: ease 0.5s all;
 }
 
 section:nth-of-type(even) .landing__container::before {
@@ -158,8 +155,8 @@ section:nth-of-type(even) .landing__container::before {
 	width: 10vh;
 	height: 10vh;
 	border-radius: 50%;
-	/* opacity: 0; */
-	/* transition: ease 0.5s all; */
+	opacity: 0;
+	transition: ease 0.5s all;
 }
 
 section:nth-of-type(3n) .landing__container::after {
@@ -173,8 +170,8 @@ section:nth-of-type(3n) .landing__container::after {
 	width: 10vh;
 	height: 10vh;
 	border-radius: 50%;
-	/* opacity: 0; */
-	/* transition: ease 0.5s all; */
+	opacity: 0;
+	transition: ease 0.5s all;
 }
 
 section:nth-of-type(3n + 1) .landing__container::after {
@@ -188,8 +185,8 @@ section:nth-of-type(3n + 1) .landing__container::after {
 	width: 15vh;
 	height: 15vh;
 	border-radius: 50%;
-	/* opacity: 0; */
-	/* transition: ease 0.5s all; */
+	opacity: 0;
+	transition: ease 0.5s all;
 }
 
 /* ---- Theme State Rules ---- */
