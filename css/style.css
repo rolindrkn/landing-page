@@ -64,15 +64,16 @@ section {
 .navbar__menu ul {
 	padding-left: 0;
 	margin: 0;
-	text-align: right;
+	display: flex;
+	list-style: none;
+	justify-content: space-around;
 }
 
 .navbar__menu li {
-	display: inline-block;
+	flex: 1;
 }
 
 .navbar__menu .menu__link {
-	display: block;
 	padding: 1em;
 	font-weight: bold;
 	text-decoration: none;
